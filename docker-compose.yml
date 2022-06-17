@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  redis:
+    image: "redis:7.0.2"
+    ports:
+      - "6379:6379"
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - redis
+    depends_on:
+      - redis

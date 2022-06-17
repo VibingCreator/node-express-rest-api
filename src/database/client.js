@@ -1,6 +1,11 @@
 import { createClient } from "redis";
 
-const client = createClient();
+const client = createClient({
+    socket: {
+        host: "redis",
+        port: 6379
+    }
+});
 
 await client.connect();
 
